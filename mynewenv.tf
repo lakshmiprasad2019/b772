@@ -9,3 +9,11 @@ resource "aws_vpc" "myvpc" {
     Name = "Myvpc"
   }
 }
+resource "aws_subnet" "main" {
+  vpc_id     = aws_vpc.myvpc.id
+  cidr_block = "10.10.1.0/24"
+
+  tags = {
+    Name = "Public"
+  }
+}
